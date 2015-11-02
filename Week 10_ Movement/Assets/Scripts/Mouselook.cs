@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Mouselook : MonoBehaviour {
 
-	public float looks;
+	public float looksx;
+	public float looksy;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,8 +16,13 @@ public class Mouselook : MonoBehaviour {
 
 		if(Input.GetAxis("Mouse X") != 0)
 		   {
-			transform.Rotate (transform.up, Input.GetAxis("Mouse X") * looks);
+			transform.Rotate (transform.up, Input.GetAxis("Mouse X") * looksx);
 		}
 		//roatet
+
+		if(Input.GetAxis("Mouse Y") != 0)
+		{
+			transform.Rotate (transform.right, Input.GetAxis("Mouse Y") * looksy);
+		}
 	}
 }
