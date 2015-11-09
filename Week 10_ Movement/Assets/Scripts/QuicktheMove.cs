@@ -20,13 +20,14 @@ public class QuicktheMove : MonoBehaviour {
 
 		{
 			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//declare a vector
 
 			if (Physics.Raycast(ray,out hit) && hit.collider.tag == "Ground")
 			{
 				//get the position
 				//transform.position = Vector3.Lerp(transform.position, hit.point);
-				Vector3 mvoe;
+
+				Vector3 move;
 
 				move = hit.point - transform.position;
 				move.Normalize();
