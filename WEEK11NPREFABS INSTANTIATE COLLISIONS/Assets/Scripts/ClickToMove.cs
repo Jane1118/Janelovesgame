@@ -27,12 +27,12 @@ public class ClickToMove : MonoBehaviour {
 				// get direction to destination
 				
 				// vector between destination and current location
-				move = hit.point - transform.position;
+				move = hit.point - transform.position+transform.up;
 				// set that vector's magnitude to 1
 				move.Normalize();
 				// move transform in that direction
 				transform.position += move * Time.deltaTime * moveSpeed;
-				transform.rotation = Quaternion.LookRotation ;
+				transform.rotation = Quaternion.LookRotation(move);
 
 				
 				//set the magnitude of the vector to 1;

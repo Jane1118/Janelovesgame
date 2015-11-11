@@ -17,17 +17,21 @@ public class bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	// move in a direction fast
+		// move in a direction fast
 		transform.position += direction * Time.deltaTime * movespeed;
 
-		void OnCollsionEnter (Collision col){
+	}
 
-			Debug.Log ("Bullet hit");
+		void OnCollisionEnter (Collision col){
+
+//			Debug.Log ("Bullet hit");
+
 			// get rid of the game
 			// check  if its enemy
-			if (col.collider.tag = "enemy")
+			if (col.collider.tag == "Enemy")
 
 			{
+				Debug.Log("HitEnemy");
 				col.collider.gameObject.SetActive (false);
 				Destroy(gameObject);//bullet disapper once it shoots
 			}

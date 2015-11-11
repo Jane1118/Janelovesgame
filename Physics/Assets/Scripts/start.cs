@@ -14,10 +14,11 @@ public class start : MonoBehaviour {
 	// Update is called once per frame
 
 	void Update () {
-		if (Input.GetKey(KeyCode.A))
+		if (Input.GetKey(KeyCode.Space))
 
 		{
-			transform.rotation = Quaternion.FromToRotation(Vector3.up, transform.forward);
+			//transform.rotation = Quaternion.FromToRotation(Vector2.up, transform.forward);
+			transform.RotateAround(transform.position, transform.up, 10);
 			}
 		}
 

@@ -16,8 +16,8 @@ public class enemy : MonoBehaviour {
 	void Update () {
 	
 		//turn face to the player
-		transform.rotation =  Quaternion.LookRotation(target.position - transform.position)); //need vector
-	}
+		transform.rotation =  Quaternion.LookRotation(target.position - transform.position); //need vector
+	
 	
 	//move forwards to the player
 

@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gamemanager : MonoBehaviour {
+public class gameManager : MonoBehaviour {
 	public enemy basicenenmy;
 	public enemy fieceenemy;
+	public player player;
+
 //	public bullet bullet;
-	public Transform [] spwarlPoints;
+	public Transform [] spawnPoints;
 
 
 	// Use this for initialization
 	void Start () {
 
-		InvokeRepeating ("spawlEnemy", if, if);
+	InvokeRepeating ("SpawnEnemy", 1f, 1f);
 	
 	}
 	
@@ -19,13 +21,13 @@ public class gamemanager : MonoBehaviour {
 	void Update () {
 	
 	}
-	void SpawlEnemy(){
+	void SpawnEnemy(){
 		// randomlize 
 
 
 		// instantiate new enemy
-		enemy newenemy = Instantiate (basicenenmy, spwarlPoints [Random.Range(0,spwarlPoints.Length)].position,Quaternion.identity);
-		newenemy.target = player;
+		enemy newenemy = (enemy) Instantiate (basicenenmy, spawnPoints [Random.Range(0,spawnPoints.Length)].position,Quaternion.identity);
+		newenemy.target = player.transform;
 		newenemy.gameObject.SetActive (true);
 
 	}

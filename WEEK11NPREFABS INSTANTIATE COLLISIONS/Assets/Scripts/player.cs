@@ -3,9 +3,10 @@ using System.Collections;
 
 public class player : MonoBehaviour {
 
-	public bullet bullet;
+
 	public int maxhealth;
 	public int currenhealth;
+	public bullet bullet;  
 
 	// Use this for initialization
 	void Start () {
@@ -25,18 +26,16 @@ public class player : MonoBehaviour {
 
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space))
-		
-		{
-			Shoot();
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Shoot ();
 
 		}
-	
+	}
 		// it the enemy hit the player, the player dies-->trigger 
 
-		void OnCollsionEnter (Collision col){
+		void OnCollisionEnter (Collision col){
 
-			if (col.other.tag == "Enemy")
+			if (col.collider.tag == "Enemy")
 			{
 				currenhealth -= 1;
 
@@ -47,9 +46,9 @@ public class player : MonoBehaviour {
 		void Shoot ()
 
 		{
-			bullet newBullet=  bullet Instantiate (bullet, transform.position + transform.forward,Quaternion.identity); //casting 
+			bullet newBullet=  (bullet) Instantiate (bullet, transform.position + transform.forward,Quaternion.identity); //casting 
 			newBullet.direction = transform.forward;
 
 		}
 	}
-}
+
